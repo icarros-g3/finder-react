@@ -10,14 +10,19 @@ import {
 
 import ChevronIcon from '../assets/icons/chevron.svg'
 
-export const Select = ({ name, id, options, onChange, ...props }) => {
+export const Select = ({ name, id, options, selected, onChange, ...props }) => {
   const handleOnChange = (e) => {
     onChange(e.target.value)
   }
 
   return (
     <Wrapper {...props}>
-      <StyledSelect name={name} id={id} onChange={handleOnChange}>
+      <StyledSelect
+        name={name}
+        id={id}
+        onChange={handleOnChange}
+        value={selected}
+      >
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>

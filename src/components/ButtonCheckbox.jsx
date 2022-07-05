@@ -12,7 +12,7 @@ export const ButtonCheckbox = ({
   ...props
 }) => {
   return (
-    <Container {...props}>
+    <Container aria-label={checked} role="button" {...props}>
       <label htmlFor={id}>
         <input
           type="checkbox"
