@@ -10,7 +10,15 @@ import {
 
 import ChevronIcon from '../assets/icons/chevron.svg'
 
-export const Select = ({ name, id, options, selected, onChange, ...props }) => {
+export const Select = ({
+  name,
+  id,
+  options,
+  selected,
+  onChange,
+  disabled = false,
+  ...props
+}) => {
   const handleOnChange = (e) => {
     onChange(e.target.value)
   }
@@ -22,6 +30,7 @@ export const Select = ({ name, id, options, selected, onChange, ...props }) => {
         id={id}
         onChange={handleOnChange}
         value={selected}
+        disabled={disabled}
       >
         {options.map((option) => {
           return (
@@ -85,5 +94,10 @@ const StyledSelect = styled.select(
     font-weight: ${({ theme }) => theme.fontWeights.regular};
     color: ${theme.colors.white.n000};
     appearance: none;
+
+    &:disabled {
+      cursor: default;
+      background-color: ${theme.colors.white.n120};
+    }
   `
 )
