@@ -48,3 +48,37 @@ export const getFiftyYearsFromNow = () => {
   }
   return yearsArray
 }
+
+export const formatForCurrency = (value) =>
+  value &&
+  value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
+export const translateFuelLabel = (fuel) => {
+  switch (fuel) {
+    case 1:
+      return 'Gasolina'
+
+    case 2:
+      return 'Alcool'
+
+    case 3:
+      return 'Diesel'
+
+    case 4:
+      return 'Flex'
+
+    case 5:
+      return 'GNV'
+
+    case 6:
+      return 'Elétrico'
+
+    case 7:
+      return 'Híbrido'
+  }
+}

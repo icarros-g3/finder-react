@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import propTypes from '@styled-system/prop-types'
 import { border, flexbox, layout, space } from 'styled-system'
 
@@ -31,68 +31,74 @@ export const Checkbox = ({
   )
 }
 
-const StyledLabel = styled.label`
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: ${({ theme }) => theme.fonts.primary};
-  opacity: ${({ disabled }) => (disabled ? '0.5' : '1.0')};
+const StyledLabel = styled.label(
+  ({ theme, disabled }) => css`
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    font-family: ${theme.fonts.primary};
+    opacity: ${disabled ? '0.5' : '1.0'};
 
-  & input[type='checkbox'] {
-    display: none;
-  }
-
-  & input[type='checkbox'] + i {
-    width: 100%;
-    height: 18px;
-    max-width: 18px;
-    min-width: 18px;
-    background-color: ${({ theme }) => theme.colors.gray.n500};
-    mask-image: url(${CheckboxIcon});
-    -webkit-mask-image: url(${CheckboxIcon});
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    transition: all 0.2s;
-
-    &:hover {
-      background-color: ${({ theme, disabled }) =>
-        disabled ? theme.colors.gray.n500 : theme.colors.primary};
+    & input[type='checkbox'] {
+      display: none;
     }
-  }
 
-  & input[type='checkbox']:checked + i {
-    width: 100%;
-    height: 18px;
-    max-width: 18px;
-    min-width: 18px;
-    background-color: ${({ theme }) => theme.colors.primary};
-    mask-image: url(${FilledCheckboxIcon});
-    -webkit-mask-image: url(${FilledCheckboxIcon});
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-  }
+    & input[type='checkbox'] + i {
+      width: 100%;
+      height: 18px;
+      max-width: 18px;
+      min-width: 18px;
+      background-color: ${theme.colors.gray.n500};
+      mask-image: url(${CheckboxIcon});
+      -webkit-mask-image: url(${CheckboxIcon});
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      transition: all 0.2s;
 
-  & span {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    color: ${({ theme }) => theme.colors.text.white};
-    line-height: ${({ theme }) => theme.lineHeights.sm};
-    font-weight: ${({ theme }) => theme.fontWeights.regular};
-    margin-left: 4px;
-  }
+      &:hover {
+        background-color: ${disabled
+          ? theme.colors.gray.n500
+          : theme.colors.primary};
+      }
+    }
 
-  ${space}
-  ${layout}
+    & input[type='checkbox']:checked + i {
+      width: 100%;
+      height: 18px;
+      max-width: 18px;
+      min-width: 18px;
+      background-color: ${theme.colors.primary};
+      mask-image: url(${FilledCheckboxIcon});
+      -webkit-mask-image: url(${FilledCheckboxIcon});
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    & span {
+      font-size: ${theme.fontSizes.sm};
+      color: ${theme.colors.text.white};
+      line-height: ${theme.lineHeights.sm};
+      font-weight: ${theme.fontWeights.regular};
+      margin-left: 4px;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    ${space}
+    ${layout}
   ${border}
   ${flexbox}
-`
+  `
+)
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,

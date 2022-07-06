@@ -29,6 +29,10 @@ export const Navbar = ({ ...props }) => {
     let ticking = false
 
     const updateScrollDir = () => {
+      if (!mainHeaderRef.current) {
+        return
+      }
+
       const scrollY = window.pageYOffset
 
       if (Math.abs(scrollY - lastScrollY) < threshold) {
