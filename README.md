@@ -29,6 +29,8 @@ Cada tarefa era designada a um integrante do grupo, ficando responsável por des
 - [ESLint](https://eslint.org/)
 - [Storybook](https://storybook.js.org/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
 
 ## :rocket: Como testar o projeto
 
