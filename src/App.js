@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 // import { hotjar } from 'react-hotjar'
 // import TagManager from 'react-gtm-module'
 
-import AppRoutes from './routes/Routes'
+import { AppRoutes } from './routes'
 import { GlobalStyle } from './themes/GlobalStyle'
 import { theme } from './themes/theme'
 
