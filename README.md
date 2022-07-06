@@ -1,8 +1,8 @@
 # Acelera iCarros Tech - Flavin do Pneu
 
-<img src="https://user-images.githubusercontent.com/45228799/177657093-3a8432c5-8ef6-4467-b3f8-c10ded0eebb2.png" />
+![Logo Equipe](https://user-images.githubusercontent.com/45228799/177657093-3a8432c5-8ef6-4467-b3f8-c10ded0eebb2.png)
 
-## 💻 Introdução
+## :computer: Introdução
 
 Projeto realizado durante o [<"acelera"><"iCarros_Tech">](https://aceleraicarrostech.corporate.gama.academy/), programa de aceleração feito em parceria de [Gama Academy](https://www.gama.academy/) e o [iCarros](https://www.icarros.com.br/principal/index.jsp).
 
@@ -53,13 +53,15 @@ $ yarn start
 ![image](https://user-images.githubusercontent.com/45228799/177656964-e4c2522b-f350-47c2-b8e5-9c692051439c.png)
 
 ## :sparkles: Créditos
-
-- [Diego Sano](https://github.com/diegosano)
-- [Gloria Guazzini Porte](https://github.com/gloriaporte)
-- [Guilherme de Araujo Gabriel](https://github.com/guilhermag)
-- [Yuri Cavalini](https://github.com/yuricavalini)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/diegosano"><img style="border-radius: 50%;" src="https://github.com/diegosano.png" width="100px;" alt=" Diego's photo"/><sub><br /><b>Diego Sano</b></sub></a></td>
+    <td align="center"><a href="https://github.com/gloriaporte"><img style="border-radius: 50%;" src="https://github.com/gloriaporte.png" width="100px;" alt="Gloria's photo"/><br /><sub><b>Gloria Guazzini</b></sub></a></td>
+    <td align="center"><a href="https://github.com/guilhermag"><img style="border-radius: 50%;" src="https://github.com/guilhermag.png" width="100px;" alt="Guilherme's photo"/><br /><sub><b>Guilherme de Araujo</b></sub></a></td>
+    <td align="center"><a href="https://github.com/yuricavalini"><img style="border-radius: 50%;" src="https://github.com/yuricavalini.png" width="100px;" alt="Yuri's photo"/><br /><sub><b>Yuri Cavanlini</b></sub></a></td>
+  </tr>
+</table>
 
 ## :books: Materiais utilizados
 
 - Protótipo com ícones, imagens e planos de fundo : [Gama Academy](https://www.gama.academy/)
-- Barra de progresso utilizada no README.md : [Gepser Hoil](https://github.com/gepser/markdown-progress)
