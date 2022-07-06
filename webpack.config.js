@@ -1,7 +1,6 @@
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.js'],
@@ -33,12 +32,6 @@ const config = {
       patterns: [{ from: 'src/index.html' }],
     }),
     new CleanWebpackPlugin(),
-    new Dotenv({
-      path: path.join(__dirname, './.env'),
-      safe: true,
-      allowEmptyValues: true,
-      systemvars: true,
-    }),
   ],
   stats: {
     errorDetails: true,
