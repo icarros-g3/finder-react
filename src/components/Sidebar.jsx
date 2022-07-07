@@ -572,6 +572,33 @@ const SidebarOverlay = styled.div(
       display: flex;
     }
 
+    .sidebar-button--close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .sidebar-button--close .line {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: ${theme.colors.primary};
+    }
+
+    .sidebar-button--close .line.line--top {
+      transform: rotate(45deg);
+    }
+
+    .sidebar-button--close .line.line--bottom {
+      transform: rotate(-45deg);
+    }
+
     @media screen and (max-width: 400px) {
       .sidebar-button--close {
         display: none;

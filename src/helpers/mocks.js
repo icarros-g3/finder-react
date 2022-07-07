@@ -261,7 +261,7 @@ export const MOCKED_FILTERS = {
       value: 'Banco de couro',
     },
     {
-      id: 5,
+      id: 6,
       value: 'Rodas em liga leve',
     },
   ],

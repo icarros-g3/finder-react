@@ -2,7 +2,7 @@ import { Link } from '../../../../components/Link'
 
 import { typesSectionMockedData } from '../../../../helpers/indexMockedDatas'
 
-const CatalogPath = '/catalog'
+const CarsPath = '/cars'
 
 const TypesSection = ({ ...props }) => {
   return (
@@ -11,7 +11,7 @@ const TypesSection = ({ ...props }) => {
         <h1 className="types-section--title">Mais procurados</h1>
 
         <Link
-          to={CatalogPath}
+          to={CarsPath}
           className="types-section--link center-content"
           children={
             <>
@@ -26,8 +26,8 @@ const TypesSection = ({ ...props }) => {
         {typesSectionMockedData.map((type, index) => (
           <div className="types-section--card" key={`${type.label}-${index}`}>
             <Link
-              to={CatalogPath}
-              // to={`${CatalogPath}?cartype=${type.label}`}
+              to={CarsPath}
+              // to={`${CarsPath}?cartype=${type.label}`}
               className="types-section--a"
               children={
                 <>

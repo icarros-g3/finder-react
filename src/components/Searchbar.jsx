@@ -21,6 +21,8 @@ import {
   paramsSerializer,
 } from '../helpers/utils'
 
+import { MOCKED_FILTERS } from '../helpers/mocks'
+
 import { SearchDataContent } from '../context/SearchDataContext'
 
 import { ButtonCheckbox } from '../components/ButtonCheckbox'
@@ -38,7 +40,17 @@ export const Searchbar = ({ ...props }) => {
   const [models, setModels] = useState([])
   const [cartypes, setTypes] = useState([])
   const [locations, setLocations] = useState([])
-  const [searchbarData, setSearchbarData] = useState({})
+  const [searchbarData, setSearchbarData] = useState({
+    search: '',
+    brand: '',
+    model: '',
+    cartype: '',
+    locale: '',
+    conditionFirst: true,
+    conditionSecond: false,
+  })
+
+  console.warn(MOCKED_FILTERS)
 
   // SearchDataContent - Context
   const { searchData, setSearchData, searchDataResult, setSearchDataResult } =
@@ -50,10 +62,18 @@ export const Searchbar = ({ ...props }) => {
 
   // Initial render
   useEffect(() => {
-    fechDataFromApi('brands').then(({ data }) => setBrands(data))
-    fechDataFromApi('card_models').then(({ data }) => setModels(data))
-    fechDataFromApi('cartype').then(({ data }) => setTypes(data))
-    fechDataFromApi('locale').then(({ data }) => setLocations(data))
+    fechDataFromApi('brands')
+      .then(({ data }) => setBrands(data))
+      .catch((e) => setBrands(MOCKED_FILTERS.brands))
+    fechDataFromApi('cardmodels')
+      .then(({ data }) => setModels(data))
+      .catch((e) => setModels(MOCKED_FILTERS.models))
+    fechDataFromApi('cartype')
+      .then(({ data }) => setTypes(data))
+      .catch((e) => setTypes(MOCKED_FILTERS.types))
+    fechDataFromApi('locale')
+      .then(({ data }) => setLocations(data))
+      .catch((e) => setLocations(MOCKED_FILTERS.locales))
   }, [])
 
   // Handle functions
@@ -84,10 +104,10 @@ export const Searchbar = ({ ...props }) => {
       let conditions = []
 
       if (searchbarData?.conditionFirst) {
-        conditions.push(0)
+        conditions.push(1)
       }
       if (searchbarData?.conditionSecond) {
-        conditions.push(1)
+        conditions.push(2)
       }
 
       resolve(conditions)
@@ -134,6 +154,8 @@ export const Searchbar = ({ ...props }) => {
     let searchParamsObject = await processSearchParams()
     removeUndefinedFields(searchParamsObject)
 
+    console.warn(searchParamsObject)
+
     api
       .get('/adverts', {
         params: searchParamsObject,
@@ -149,7 +171,7 @@ export const Searchbar = ({ ...props }) => {
       })
 
       .then((searchParamsSerialized) =>
-        navigate(`/catalog/?${searchParamsSerialized}`, {
+        navigate(`/cars/?${searchParamsSerialized}`, {
           replace: true,
         })
       )
@@ -218,7 +240,7 @@ export const Searchbar = ({ ...props }) => {
                 {brands?.map((brand, index) => {
                   return (
                     <option key={brand.id} value={brand.id}>
-                      {brand.name}
+                      {brand.value}
                     </option>
                   )
                 })}
@@ -246,8 +268,8 @@ export const Searchbar = ({ ...props }) => {
 
                 {models?.map((model, index) => {
                   return (
-                    <option key={model.id} value={model.name}>
-                      {model.name}
+                    <option key={model.id} value={model.id}>
+                      {model.value}
                     </option>
                   )
                 })}

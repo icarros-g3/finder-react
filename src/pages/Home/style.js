@@ -232,6 +232,7 @@ export const StyledMain = styled.main(
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-decoration: none;
       color: ${theme.colors.white.n700};
       cursor: auto;
     }
