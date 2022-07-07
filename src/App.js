@@ -1,7 +1,8 @@
+import ReactPixel from 'react-facebook-pixel'
+import TagManager from 'react-gtm-module'
 import { hot } from 'react-hot-loader/root'
 import { ThemeProvider } from 'styled-components'
 import { hotjar } from 'react-hotjar'
-import TagManager from 'react-gtm-module'
 
 import { AppRoutes } from './routes'
 import { GlobalStyle } from './themes/GlobalStyle'
@@ -19,6 +20,15 @@ const tagManagerArgs = {
 }
 
 TagManager.initialize(tagManagerArgs)
+
+const options = {
+  autoConfig: true,
+  debug: true,
+}
+
+ReactPixel.init(process.env.PIXEL_ID, undefined, options)
+ReactPixel.pageView()
+ReactPixel.track('ViewContent')
 
 const App = () => {
   return (
