@@ -6,14 +6,14 @@ import { Link } from '../../../../components/Link'
 
 import { Latest } from '../../../Car/style'
 
-const CatalogPath = '/catalog'
+const CarsPath = '/cars'
 
 const LatestSection = ({ ...props }) => {
   const [latestCondition, setLatestCondition] = useState({
     conditionFirst: false,
     conditionSecond: true,
   })
-  const [linkTo, setLinkTo] = useState(CatalogPath)
+  const [linkTo, setLinkTo] = useState(CarsPath)
 
   /**
    * Observes the value change of latestCondition state to serialize url parameters accordingly.
@@ -60,7 +60,7 @@ const LatestSection = ({ ...props }) => {
     for (const condition of conditions) {
       paramsArray.push(`condition=${condition}`)
     }
-    return `${CatalogPath}?${paramsArray.join('&')}`
+    return `${CarsPath}?${paramsArray.join('&')}`
   }
 
   return (

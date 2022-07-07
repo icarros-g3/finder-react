@@ -6,6 +6,8 @@ import { Checkbox } from '../components/Checkbox'
 
 import { formatForCurrency, translateFuelLabel } from '../helpers/utils'
 
+import NoImagem from '../assets/images/no-image.png'
+
 import WishlistIcon from '../assets/icons/wishlist.svg'
 import ArrowLeftIcon from '../assets/icons/arrow-left.svg'
 import ArrowRightIcon from '../assets/icons/arrow-right.svg'
@@ -13,6 +15,7 @@ import PinIcon from '../assets/icons/pin-market.svg'
 import DashboardIcon from '../assets/icons/dashboard.svg'
 import GearboxIcon from '../assets/icons/gearbox.svg'
 import PetrolIcon from '../assets/icons/petrol.svg'
+import { MOCKED_ADVERTS } from '../helpers/mocks'
 
 export const Card = ({ car, onCompareClick, isSecondary }) => {
   const navigate = useNavigate()
@@ -51,7 +54,11 @@ export const Card = ({ car, onCompareClick, isSecondary }) => {
       <div className="wrapper">
         <div className="slider">
           {/* {car.photos.map((photo) => ( */}
-          <img key={car.photos?.id} className="show" src={car.photos?.value} />
+          <img
+            key={car.photos?.id}
+            className="show"
+            src={car.photos?.value ?? NoImagem}
+          />
           {/* ))} */}
         </div>
 
@@ -126,7 +133,7 @@ export const Card = ({ car, onCompareClick, isSecondary }) => {
 
           <div className="icon">
             <img src={PetrolIcon} alt="Combustível de alimentação" />
-            <span>{translateFuelLabel(car.fuel?.id)}</span>
+            <span>{translateFuelLabel(car.fuel?.id) ?? 'Gasolina'}</span>
           </div>
         </div>
       </div>

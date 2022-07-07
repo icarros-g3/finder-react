@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { Link } from '../../components/Link'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
 import { CardsCarousel } from '../../components/CardsCarousel'
+
+import { fechDataFromApi } from '../../helpers/utils'
+import { MOCKED_ADVERTS } from '../../helpers/mocks'
 
 import {
   CardHeader,
@@ -24,10 +28,26 @@ import GalleryThree from '../../assets/images/gallery-3.jpg'
 import GalleryFour from '../../assets/images/gallery-4.jpg'
 import Avatar from '../../assets/images/avatar.png'
 
-const CatalogPath = '/catalog'
+const CarsPath = '/cars'
 
 export const Car = () => {
   const [subscribe, setSubscribe] = useState(true)
+  const [carData, setCarData] = useState({})
+
+  const { id } = useParams()
+  console.warn(id)
+
+  useEffect(() => {
+    fechDataFromApi(`/adverts?id=${id}`)
+      .then(({ data }) => {
+        console.warn(data)
+        setCarData(data)
+      })
+      .catch((e) => {
+        setCarData(MOCKED_ADVERTS[0])
+        console.warn(MOCKED_ADVERTS[0])
+      })
+  }, [])
 
   // Handle functions
   const handleOnChangeSubscribe = (e) => {
@@ -155,13 +175,13 @@ export const Car = () => {
                 </li>
 
                 <li className="breadcrumb-item">
-                  <Link to={`${CatalogPath}?condition=2`} children="Usados" />
+                  <Link to={`${CarsPath}?condition=2`} children="Usados" />
                 </li>
 
                 <li className="breadcrumb-item active">
                   <Link
                     to="#"
-                    children="Mercedes-Benz E 400 Cabriolet"
+                    children={carData.model ?? 'Mercedes-Benz E 400 Cabriolet'}
                     aria-current="page"
                   />
                 </li>
@@ -169,7 +189,7 @@ export const Car = () => {
             </Breadcrumbs>
 
             <div className="row space-between">
-              <h1>Mercedes-Benz E 400 Cabriolet</h1>
+              <h1>{carData.model ?? 'Mercedes-Benz E 400 Cabriolet'}</h1>
 
               <CardHeaderIcons>
                 <button type="button" aria-label="Favoritar">
@@ -265,26 +285,26 @@ export const Car = () => {
                 <ul>
                   <li>
                     <strong>Ano:</strong>
-                    <span>2018</span>
+                    <span>{carData?.year ?? 'Indisponível'}</span>
                   </li>
                   <li>
-                    <strong>Kilome:</strong>
+                    <strong>Quilometragem:</strong>
                     <span>25K miles</span>
                   </li>
                   <li>
                     <strong>Tipo:</strong>
-                    <span>Convertible</span>
+                    <span>{carData?.cartype ?? 'Indisponível'}</span>
                   </li>
                   <li>
                     <strong>Transmisão:</strong>
-                    <span>Automático</span>
+                    <span>{carData?.additional?.[0] ?? 'Indisponível'}</span>
                   </li>
                 </ul>
               </Specifications>
             </div>
 
             <Sidebar>
-              <h1 className="car-price">R$ 60.990</h1>
+              <h1 className="car-price">R${carData?.price ?? '60.990'}</h1>
 
               <div className="meta">
                 <div className="mileage">

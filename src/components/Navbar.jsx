@@ -17,7 +17,7 @@ import Logo from '../assets/icons/logo.svg'
 import UserIcon from '../assets/icons/user-single.svg'
 import PlusIcon from '../assets/icons/plus.svg'
 
-const CatalogPath = '/catalog'
+const CarsPath = '/cars'
 
 export const Navbar = ({ ...props }) => {
   const [isAriaChecked, setIsAriaChecked] = useState(false)
@@ -86,7 +86,7 @@ export const Navbar = ({ ...props }) => {
         <ul className="navbar-list" id="desktopNavList">
           <li className="navbar-item">
             <Link
-              to={`${CatalogPath}?condition=1`}
+              to={`${CarsPath}?condition=1`}
               className="navbar-link"
               children="Novos"
             />
@@ -94,7 +94,7 @@ export const Navbar = ({ ...props }) => {
 
           <li className="navbar-item">
             <Link
-              to={`${CatalogPath}?condition=2`}
+              to={`${CarsPath}?condition=2`}
               className="navbar-link"
               children="Usados"
             />
@@ -153,14 +153,14 @@ export const Navbar = ({ ...props }) => {
             </li>
             <li className="navbar-item">
               <Link
-                to={`${CatalogPath}?condition=1`}
+                to={`${CarsPath}?condition=1`}
                 className="navbar-link"
                 children="Novos"
               />
             </li>
             <li className="navbar-item">
               <Link
-                to={`${CatalogPath}?condition=2`}
+                to={`${CarsPath}?condition=2`}
                 className="navbar-link"
                 children="Usados"
               />

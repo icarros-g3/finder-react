@@ -12,7 +12,7 @@ import DashboardIcon from '../../../../assets/icons/dashboard.svg'
 import GearboxIcon from '../../../../assets/icons/gearbox.svg'
 import PetrolIcon from '../../../../assets/icons/petrol.svg'
 
-const CatalogPath = '/catalog'
+const CarsPath = '/cars'
 
 const OffersSection = ({ ...props }) => {
   return (
@@ -24,7 +24,7 @@ const OffersSection = ({ ...props }) => {
         <h1>Ofertas</h1>
 
         <Link
-          to={CatalogPath}
+          to={CarsPath}
           className="ofertas-section--link center-content"
           children={
             <>

@@ -10,6 +10,8 @@ import { Sidebar } from '../../components/Sidebar'
 import { getAdverts } from '../../services/advert'
 import { SearchDataContent } from '../../context/SearchDataContext'
 
+import { MOCKED_ADVERTS } from '../../helpers/mocks'
+
 import GridIcon from '../../assets/icons/grid.svg'
 import ListIcon from '../../assets/icons/list.svg'
 import FilterIcon from '../../assets/icons/filter.svg'
@@ -57,6 +59,7 @@ export const Catalog = () => {
         setTotalPages(Number(data.totalPages))
       } catch (error) {
         console.log(error)
+        setAdverts(MOCKED_ADVERTS)
       }
     }
     loadAdverts()
