@@ -58,7 +58,6 @@ export const Catalog = () => {
         setAdverts(data.results)
         setTotalPages(Number(data.totalPages))
       } catch (error) {
-        console.log(error)
         setAdverts(MOCKED_ADVERTS)
       }
     }

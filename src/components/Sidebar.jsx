@@ -89,7 +89,6 @@ export const Sidebar = ({ isFilterOpen, setIsFilterOpen }) => {
         })
       } catch (error) {
         setFilterOptions(MOCKED_FILTERS)
-        console.log(error)
       }
     }
     loadFilters()

@@ -32,7 +32,9 @@ const config = {
     new CopyPlugin({
       patterns: [{ from: 'src/index.html' }],
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!.gitignore', '!_redirects'],
+    }),
     new Dotenv({
       systemvars: true,
     }),
