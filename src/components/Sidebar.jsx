@@ -68,8 +68,6 @@ export const Sidebar = ({ isFilterOpen, setIsFilterOpen }) => {
       ? [...searchData[name], newValue]
       : searchData[name].filter((value) => value !== newValue)
 
-    console.log(newValues)
-
     setSearchData((state) => {
       return {
         ...state,
@@ -109,8 +107,6 @@ export const Sidebar = ({ isFilterOpen, setIsFilterOpen }) => {
   // }, [debouncedMinPrice, debouncedMaxPrice])
 
   const isSelectModelDisabled = brand === ''
-
-  console.log(searchData)
 
   return (
     <>
